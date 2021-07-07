@@ -1,2 +1,2 @@
 # Weather-App
-this weather was built using HTML, CSS and JavaScript
+this weather App was built using HTML, CSS and JavaScript
