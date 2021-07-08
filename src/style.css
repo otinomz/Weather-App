@@ -31,18 +31,18 @@ body{
     left: 706px;
 }
 
-form{
+.form{
     margin-top: 50px;
     padding: 20px;
     position: absolute;
     left: 20%;
 }
 
-form input{
+.form input{
     margin: 20px;
 }
 
-.fill_1, .fill_2{
+.city-input-value, .country-input-value{
     border: none;
     width: 266px;
     border-radius: 2px;
@@ -53,16 +53,12 @@ form input{
     outline: none;
 }
 
-.fill_1:hover, .fill_2:hover{ 
+.city-input-value:hover, .country-input-value:hover{ 
     background: transparent;
     border-bottom: 2px solid #F63C3C;
     border-radius: 2px;
     
 }
-/* 
-.temperature-icon{
-    display: none;
-} */
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: brown;
@@ -77,7 +73,6 @@ form input{
   color: brown;
 }
 
-
 .btn{
     position: absolute;
     top: 130px;
@@ -89,9 +84,31 @@ form input{
                 0px 16px 48px rgba(231, 178, 178, 0.4),
                 0px 16px 48px #FFFFFF;
     border-radius: 4px;
+    cursor: pointer;
+    display: none;
 }
 
-.btn:hover{
+.search-btn{
+    position: absolute;
+    left: 200px;
+    top: 150px;
+    width: 244px;
+    background-color: white;
+    padding: 10px;
+
+    font-size: 22px;
+    font-weight: 500;
+    box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.25),
+                0px 16px 48px rgba(231, 178, 178, 0.4),
+                0px 16px 48px #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+
+    /* padding: 8px 106px; */
+}
+
+.search-btn:hover{
     background-color:  #e9dede;
 }
 
@@ -109,7 +126,7 @@ form input{
     left: 70%;
     padding: 50px;
     border-radius: 25px;
-    /* display: none; */
+    opacity: 0;
 }
 
 img{
@@ -138,29 +155,26 @@ h3 span{
 
     .nav-bar{
         margin-left: -100px;
-    }   
+    }
 
     .straight-line{
         left: 330px;
     }
 
-    form{
+.form{
         margin-top: 30px;
         padding: 0px;
         left: 30px;
         width: 0px;
     }
 
-    form input{
+.form input{
         margin: 30px;
     }
 
-    .btn{
-        position: relative;
-        margin-left: 30px;
-        top: 0px;
-        left: 0px;
-
+    .search-btn{
+        top: 220px;
+        left: 40px;
     }
     
     .weather-results{
@@ -185,12 +199,12 @@ h3 span{
         margin-left: 0px;
     }
     
-    form input{
+.form input{
         margin-left: 100px;
     }
 
-    .btn{
-        left: 80px;
+    .search-btn{
+        left: 110px;
     }
 
     .straight-line{
@@ -201,7 +215,7 @@ h3 span{
 
     .weather-results{
         top: 450px;
-        left: 170px;
+        left: 150px;
     }
 
     h3 span{
@@ -217,12 +231,12 @@ h3 span{
 }
 
 @media (max-width: 500px) {
-    form input{
+.form input{
         margin: 30px;
     }
 
-    .btn{
-        left: 0px;
+    .search-btn{
+        left: 40px;
     }
 
     .weather-results{
@@ -241,7 +255,7 @@ h3 span{
         left: 150px;
     }
 
-    .fill_1, .fill_2{
+    .city-input-value, .country-input-value{
         margin-left: 0px;
         width: 210px;
     }
@@ -249,7 +263,13 @@ h3 span{
        font-size: 18px;
        left: -30px;
     }
+
+    .search-btn{
+        width: 190px;
+        font-size: 18px;
+        left: 15px;
+    }
     .weather-results{
-        left: 30px;
+        left: 20px;
     }
 }

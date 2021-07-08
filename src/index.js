@@ -1,56 +1,76 @@
-// API KEY = ddcef2e26391a79c173417a056875ed6
-// http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
-
-// fetch("https://community-open-weather-map.p.rapidapi.com/find?q=london&cnt=0&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=imperial%2C%20metric", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
-
-
-    // <div class="weather-results">
-    //                 <h2>City, <span>Country</span></h2>
-    //                 <h2><span>25&#176</span></h2>
-    //                 <img src="./img/VectorLogo.png" alt="temperature-icon">
-    //                 <div class="temp">
-    //                     <h3>
-    //                         <span class="max-temp">24&#176</span>
-    //                         <span class="min-temp">19&#176</span>
-    //                     </h3>
-    //                 </div>
-    //                 <span class="conditions">Slow Rain</span>
-    //             </div>
-    //             <div class="footer">
-    //                 <p>Designed by Oti  <span>&#169;2021</span></p>
-    //             </div>
-
+const form = document.querySelector(".form")
+const cityInputValue = document.querySelector('.city-input-value')
+const countryInputValue = document.querySelector('.country-input-value')
 const weatherResult = document.querySelector(".weather-results")
 const city= document.querySelector(".city")
 const country = document.querySelector(".country")
 const mainTemperature = document.querySelector('.main-temp')
 const temperatureIcon = document.querySelector('.temperature-icon')
-
 const maxTemperature = document.querySelector(".max-temp")
 const minTemperature = document.querySelector(".min-temp")
 const weatherDescription = document.querySelector(".conditions")
 
 
-// weatherResult.style.display = 'none'
+const getWeatherReport = document.querySelector('.search-btn')
 
-// city.innerHTML = 'fuck'
-// country.innerHTML = 'you'
-// mainTemperature.innerHTML = ''
-// temperatureIcon.innerHTML = `<img src="icons/${weather.iconId}.png">`
-// maxTemperature.innerHTML = ''
-// minTemperature.innerHTML = ''
-// weatherDescription.innerHTML = ''
 
-//temperatureIcon.style.display = 'none'
+let weather = {
+    'apiKey': "ddcef2e26391a79c173417a056875ed6",
 
+    fetchWeatherInformation: function (city) {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="
+            + city
+            + "&units=metric&appid="
+            + this.apiKey
+        ).then(response => response.json())
+        .then( data => this.displayWeather(data))
+
+    },
+
+    displayWeather: function (data) {
+        // using array destructuring to destructure the API data 
+        const { name } = data
+        const { icon, description } = data.weather[0]
+        const { temp, temp_max, temp_min } = data.main
+        // console.log(name, icon, description, temp_max, temp_min);
+        
+        // Loading the data into the weather result card
+        city.innerText = name + ','
+        temperatureIcon.src = "https://openweathermap.org/img/w/" + icon + ".png"
+        mainTemperature.innerText = Math.floor(temp) + '°C'
+        maxTemperature.innerText = Math.floor(temp_max) + '°C'
+        minTemperature.innerText = Math.floor(temp_min) + '°C'
+        weatherDescription.innerText = description
+      
+    },
+    
+    search: function () {
+        this.fetchWeatherInformation(cityInputValue.value)
+        city.innerText = cityInputValue.value
+        country.innerText= countryInputValue.value
+    },
+
+}
+
+getWeatherReport.addEventListener("click", function (data) {
+    document.querySelector(".weather-results").style.opacity = '1'
+    weather.search()
+    cityInputValue.value = ""
+    countryInputValue.value = ""
+})
+
+
+// if user press the "Enter Key"
+document.querySelector(".city-input-value").addEventListener("keyup", function (event){
+    
+    if (event.key == 'Enter') {
+        document.querySelector(".weather-results").style.opacity = '1'
+        weather.search()
+        cityInputValue.value = ""
+        countryInputValue.value = ""
+       
+
+    }    
+})
+
+weather.fetchWeatherInformation("Jos")

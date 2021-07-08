@@ -17,12 +17,12 @@
                 </div>
             </section>
             <section>
-                <form action="">
-                    <input type="text" class="fill_1" placeholder="city" required>
-                    <input type="text" class="fill_2" placeholder="country" required>
+                <div class="form">
+                    <input type="text" class="city-input-value" placeholder="city" required>
+                    <input type="text" class="country-input-value" placeholder="country" required>
                             <!-- submit button -->
-                    <input type="submit" class="btn" value="Get Weather Report">
-                </form>
+                    <button class="search-btn">Get Weather Report</button>
+                </div>
 
                 <div class="weather-results">
                     <!--  <span class="city">City,</span> <span class="country">Country</span> -->
@@ -30,14 +30,14 @@
                         <span class="city">City,</span>
                         <span class="country">Country</span>
                     </h2>
-                    <h2><span class="main-temp">25&#176</span></h2>
+                    <h2><span class="main-temp">25&#176C</span></h2>
 
                     <img class="temperature-icon" src="./img/VectorLogo.png" alt="temperature Icon">
                     
                     <div class="temp">
                         <h3>
-                            <span class="max-temp">24&#176</span>
-                            <span class="min-temp">19&#176</span>
+                            <span class="max-temp">24&#176C</span>
+                            <span class="min-temp">19&#176C</span>
                         </h3>
                     </div>
                     <span class="conditions">Slow Rain</span>
@@ -48,6 +48,6 @@
             </section>
         </div>
         
-    <script src="./src/index.js"></script>
+    <script src="./src/index.js" ></script>
 </body>
 </html>
