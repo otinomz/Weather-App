@@ -32,7 +32,6 @@ let weather = {
         const { name } = data
         const { icon, description } = data.weather[0]
         const { temp, temp_max, temp_min } = data.main
-        // console.log(name, icon, description, temp_max, temp_min);
         
         // Loading the data into the weather result card
         city.innerText = name + ','
@@ -44,6 +43,8 @@ let weather = {
       
     },
     
+
+    
     search: function () {
         this.fetchWeatherInformation(cityInputValue.value)
         city.innerText = cityInputValue.value
@@ -52,25 +53,31 @@ let weather = {
 
 }
 
+function result() {
+    
+    function clearField() {
+        cityInputValue.value = ""
+        countryInputValue.value = ""
+    }
+
+    if ((cityInputValue.value !== "") && countryInputValue.value !== "") {
+        document.querySelector(".weather-results").style.opacity = '1'
+        weather.search()
+        clearField()
+    }
+}
+
+
 getWeatherReport.addEventListener("click", function (data) {
-    document.querySelector(".weather-results").style.opacity = '1'
-    weather.search()
-    cityInputValue.value = ""
-    countryInputValue.value = ""
+    result()
 })
 
 
 // if user press the "Enter Key"
-document.querySelector(".city-input-value").addEventListener("keyup", function (event){
+document.querySelector(".clear-field").addEventListener("keyup", function (event){
     
     if (event.key == 'Enter') {
-        document.querySelector(".weather-results").style.opacity = '1'
-        weather.search()
-        cityInputValue.value = ""
-        countryInputValue.value = ""
-       
-
+        result()
     }    
 })
 
-weather.fetchWeatherInformation("Jos")

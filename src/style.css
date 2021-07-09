@@ -1,10 +1,8 @@
 body{
     background-color: rgb(230, 217, 217);
-    background-image: url('../img/DesktopCloudbg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    background-image: url("	https://images.unsplash.com/photo-1529528744093-6f8abeee511d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
 
+}
 
 .app-container{
     background-color: transparent;
@@ -73,21 +71,6 @@ body{
   color: brown;
 }
 
-.btn{
-    position: absolute;
-    top: 130px;
-    left: 180px;
-    padding: 8px 26px;
-    border: none;
-    font-size: 22px;
-    box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.25),
-                0px 16px 48px rgba(231, 178, 178, 0.4),
-                0px 16px 48px #FFFFFF;
-    border-radius: 4px;
-    cursor: pointer;
-    display: none;
-}
-
 .search-btn{
     position: absolute;
     left: 200px;
@@ -98,12 +81,10 @@ body{
 
     font-size: 22px;
     font-weight: 500;
-    box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.25),
-                0px 16px 48px rgba(231, 178, 178, 0.4),
-                0px 16px 48px #FFFFFF;
     border-radius: 4px;
     cursor: pointer;
     border: none;
+    outline: none;
 
     /* padding: 8px 106px; */
 }
@@ -147,30 +128,33 @@ h3 span{
     left: 38%;
 }
 
-@media (max-width: 1024px) {
-    body{
-        background-image: url('../img/MobileCloudbg.png');
-        background-repeat: no-repeat;
+@media (max-width: 1125px) {
+    .straight-line{
+        display: none;
     }
 
+    .form{
+        left: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+ 
     .nav-bar{
         margin-left: -100px;
     }
 
-    .straight-line{
-        left: 330px;
-    }
 
-.form{
-        margin-top: 30px;
-        padding: 0px;
-        left: 30px;
-        width: 0px;
-    }
+    .form{
+            margin-top: 30px;
+            padding: 0px;
+            left: 30px;
+            width: 0px;
+        }
 
-.form input{
-        margin: 30px;
-    }
+    .form input{
+            margin: 30px;
+        }
 
     .search-btn{
         top: 220px;
@@ -191,30 +175,21 @@ h3 span{
 }
 
 @media (max-width: 540px) {
-    body{
-        background-repeat: repeat;
-    }
 
     .nav-bar{
         margin-left: 0px;
     }
     
 .form input{
-        margin-left: 100px;
+        margin-left: 80px;
     }
 
     .search-btn{
         left: 110px;
     }
 
-    .straight-line{
-        background-color: red;
-        top: 65px;
-        left: 200px;
-    }
-
     .weather-results{
-        top: 450px;
+        top: 420px;
         left: 150px;
     }
 
@@ -223,8 +198,9 @@ h3 span{
     }
 
     .footer{
-        top: 800px;
-        left: 23%;
+        top: 770px;
+        left: 29%;
+        font: 12px;
     }
 
     
@@ -240,36 +216,27 @@ h3 span{
     }
 
     .weather-results{
-        top: 450px;
+        top: 420px;
         left: 70px;
     }
 }
 
 
 @media (max-width: 280px) {
-    .app-container{
-        background-size: cover;
-    }
-    
-    .straight-line{
-        left: 150px;
-    }
+
 
     .city-input-value, .country-input-value{
-        margin-left: 0px;
-        width: 210px;
-    }
-    .btn{
-       font-size: 18px;
-       left: -30px;
+        position: relative;
+        left: -20px;
+        width: 200px;
     }
 
     .search-btn{
         width: 190px;
         font-size: 18px;
-        left: 15px;
+        left: 10px;
     }
     .weather-results{
-        left: 20px;
+        left: 19px;
     }
 }
